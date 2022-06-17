@@ -31,9 +31,9 @@ make_efi() {
     echo Making standard OpenCore EFI folder...
     cd X64/EFI/OC
     cd Drivers
-    find . ! -name OpenRuntime.efi -delete
+    find . ! -name 'OpenRuntime.efi' ! -name 'ResetNvramEntry.efi' ! -name "ToggleSipEntry.efi" -delete
     cd ../Tools
-    find . ! -name OpenShell.efi -delete
+    find . ! -name 'OpenShell.efi' -delete
     cd ../../../..
     cp -R X64/EFI EFI
 }
@@ -54,9 +54,8 @@ copy_config(){
         cp config/$TAG/config.plist EFI/OC
         cp config/CONFIG_README.txt EFI/OC
     else
-        echo "No config for this version ($TAG) present."
-        echo "No file copied."
-        exit 1
+        echo "::warning::No config for this version ($TAG) present."
+        echo "::warning::No file copied. You can't use this EFI unless there is a config.plist present."
     fi
 }
 
