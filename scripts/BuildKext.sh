@@ -1,9 +1,15 @@
 #!/bin/bash
 
+#=========================DOWNLOAD OC KEXT=========================
+# Filename: BuildKext.sh
+# Version 22.7.20
+# https://github.com/dtcu0ng/H81M-DS2-Hackintosh
+#==================================================================
+
 # TODO: use json to store kext name & info
 prepare() {
-    [ ! -d "H81M-DS2-EFI" ] && mkdir H81M-DS2-EFI
-    [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir H81M-DS2-EFI/EFI
+    [ ! -d "H81M-DS2-EFI" ] && mkdir "H81M-DS2-EFI"
+    [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir "H81M-DS2-EFI/EFI"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 
